@@ -3,96 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AllMosaics — Handcrafted Mosaic Art & Supplies</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>AllMosaics — Australia's Home for Mosaic Art & Supplies</title>
+<link rel="stylesheet" href="components/shared.css">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  /* ============================================================
+     index.html — Hub portal styles
+     Edit collection card colours/copy here.
+     Shared nav/footer/utilities live in components/shared.css
+     ============================================================ */
 
-  :root {
-    --cream: #F5F0E8;
-    --warm-white: #FAF7F2;
-    --terra: #C4622D;
-    --terra-dark: #8B3E18;
-    --terra-light: #E8937A;
-    --clay: #D4956A;
-    --navy: #1A2744;
-    --navy-mid: #2D3F6B;
-    --gold: #C9962C;
-    --gold-light: #E8C472;
-    --charcoal: #2C2825;
-    --mid-gray: #7A7068;
-    --light-gray: #B8AFA5;
-    --tile-1: #4A7B9D;
-    --tile-2: #C4622D;
-    --tile-3: #2D6B4A;
-    --tile-4: #8B4A9D;
-    --tile-5: #C9962C;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--warm-white);
-    color: var(--charcoal);
-    overflow-x: hidden;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 1.2rem 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(250, 247, 242, 0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(196, 98, 45, 0.15);
-  }
-
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.7rem;
-    font-weight: 600;
-    color: var(--terra-dark);
-    letter-spacing: 0.02em;
-    text-decoration: none;
-  }
-
-  .nav-logo span {
-    color: var(--gold);
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 0.85rem;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--mid-gray);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--terra); }
-
-  .nav-cta {
-    background: var(--terra);
-    color: white !important;
-    padding: 0.6rem 1.4rem;
-    border-radius: 2px;
-    letter-spacing: 0.06em;
-    transition: background 0.2s !important;
-  }
-
-  .nav-cta:hover { background: var(--terra-dark) !important; color: white !important; }
+  body { background: var(--warm-white); }
 
   /* HERO */
   .hero {
@@ -103,701 +23,256 @@
   }
 
   .hero-left {
-    padding: 8rem 4rem 6rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
+    padding: 8rem 4rem 5rem;
+    display: flex; flex-direction: column; justify-content: center;
   }
 
   .hero-eyebrow {
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-    font-weight: 500;
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.5rem; font-weight: 500;
   }
 
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 4.8rem;
-    font-weight: 300;
-    line-height: 1.1;
-    color: var(--navy);
-    margin-bottom: 1.8rem;
+    font-size: 4.5rem; font-weight: 300; line-height: 1.1;
+    color: var(--navy); margin-bottom: 1.8rem;
   }
-
-  .hero-title em {
-    font-style: italic;
-    color: var(--terra);
-  }
+  .hero-title em { font-style: italic; color: var(--terra); }
 
   .hero-sub {
-    font-size: 1rem;
-    line-height: 1.75;
-    color: var(--mid-gray);
-    max-width: 420px;
-    margin-bottom: 3rem;
-    font-weight: 300;
+    font-size: 0.97rem; line-height: 1.75; color: var(--mid-gray);
+    max-width: 420px; margin-bottom: 2.8rem; font-weight: 300;
   }
 
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
+  .hero-actions { display: flex; gap: 1rem; align-items: center; }
+
+  .btn-hero {
+    background: var(--terra); color: white;
   }
+  .btn-hero:hover { background: var(--terra-dark); }
 
-  .btn-primary {
-    background: var(--terra);
-    color: white;
-    padding: 1rem 2.2rem;
-    border: none;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: background 0.2s, transform 0.15s;
+  .btn-hero-ghost {
+    color: var(--navy); border-color: var(--navy);
   }
-
-  .btn-primary:hover { background: var(--terra-dark); transform: translateY(-1px); }
-
-  .btn-ghost {
-    color: var(--navy);
-    padding: 1rem 1.5rem;
-    border: 1.5px solid var(--navy);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.2s;
-  }
-
-  .btn-ghost:hover { background: var(--navy); color: white; }
+  .btn-hero-ghost:hover { background: var(--navy); color: white; }
 
   .hero-stats {
-    display: flex;
-    gap: 3rem;
-    margin-top: 4rem;
-    padding-top: 3rem;
-    border-top: 1px solid rgba(0,0,0,0.08);
+    display: flex; gap: 2.5rem; margin-top: 4rem;
+    padding-top: 3rem; border-top: 1px solid rgba(0,0,0,0.08);
   }
-
   .hero-stat-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2.4rem;
-    font-weight: 600;
-    color: var(--terra);
+    font-size: 2.3rem; font-weight: 600; color: var(--terra);
   }
-
   .hero-stat-label {
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--light-gray);
-    margin-top: 0.2rem;
+    font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--light-gray); margin-top: 0.2rem;
   }
 
-  /* HERO MOSAIC ART */
   .hero-right {
-    position: relative;
-    overflow: hidden;
-    background: var(--navy);
+    background: var(--navy); overflow: hidden; position: relative;
   }
+  #heroMosaic { width: 100%; height: 100%; }
 
-  .mosaic-canvas {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(16, 1fr);
-    gap: 3px;
-    padding: 3px;
-  }
+  /* ============================================================
+     COLLECTION CARDS — main hub feature
+     Edit each .coll-card to customise per collection
+     ============================================================ */
+  .collections { background: var(--cream); }
 
-  .tile {
-    border-radius: 1px;
-    transition: opacity 0.4s;
-    opacity: 0;
-    animation: tileFadeIn 0.6s forwards;
-  }
-
-  @keyframes tileFadeIn {
-    to { opacity: 1; }
-  }
-
-  /* MARQUEE */
-  .marquee-strip {
-    background: var(--terra);
-    padding: 0.9rem 0;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-
-  .marquee-inner {
-    display: inline-block;
-    animation: marqueeScroll 25s linear infinite;
-  }
-
-  .marquee-inner span {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.85);
-    font-weight: 400;
-    margin-right: 3rem;
-  }
-
-  .marquee-inner span::before {
-    content: '◆';
-    margin-right: 3rem;
-    color: rgba(255,255,255,0.4);
-    font-size: 0.5rem;
-    vertical-align: middle;
-  }
-
-  @keyframes marqueeScroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  /* SECTION SHARED */
-  section {
-    padding: 6rem 4rem;
-  }
-
-  .section-label {
-    font-size: 0.72rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 1rem;
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem;
-    font-weight: 300;
-    line-height: 1.15;
-    color: var(--navy);
-    max-width: 560px;
-  }
-
-  .section-title em { font-style: italic; color: var(--terra); }
-
-  /* PRODUCTS / CATEGORIES */
-  .categories {
-    background: var(--cream);
-  }
-
-  .cat-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+  .coll-intro {
+    display: flex; justify-content: space-between; align-items: flex-end;
     margin-bottom: 4rem;
   }
 
-  .cat-link {
-    font-size: 0.83rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--terra);
-    text-decoration: none;
-    font-weight: 500;
-    border-bottom: 1.5px solid var(--terra-light);
-    padding-bottom: 2px;
-  }
-
-  .cat-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5px;
-  }
-
-  .cat-card {
-    position: relative;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-    cursor: pointer;
-  }
-
-  .cat-card:first-child {
-    grid-row: span 2;
-    aspect-ratio: unset;
-  }
-
-  .cat-bg {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    gap: 2px;
-  }
-
-  .cat-card:nth-child(1) .cat-bg {
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-  }
-
-  .cat-card:not(:first-child) .cat-bg {
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-  }
-
-  .cat-tile {
-    border-radius: 1px;
-    transition: transform 0.4s;
-  }
-
-  .cat-card:hover .cat-tile {
-    transform: scale(1.04);
-  }
-
-  .cat-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(26,39,68,0.88) 0%, transparent 55%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 2rem;
-  }
-
-  .cat-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: white;
-    margin-bottom: 0.3rem;
-  }
-
-  .cat-desc {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.65);
-    letter-spacing: 0.06em;
-  }
-
-  /* FEATURES / WHY */
-  .features {
-    background: var(--navy);
-    color: white;
-  }
-
-  .features .section-title { color: white; }
-
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
-    margin-top: 4rem;
-  }
-
-  .feature-icon {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 1.5rem;
-  }
-
-  .feature-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem;
-    font-weight: 400;
-    color: var(--gold-light);
-    margin-bottom: 0.8rem;
-  }
-
-  .feature-text {
-    font-size: 0.88rem;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.55);
-    font-weight: 300;
-  }
-
-  .feature-divider {
-    width: 2rem;
-    height: 2px;
-    background: var(--terra);
-    margin-bottom: 1.5rem;
-  }
-
-  /* GALLERY */
-  .gallery {
-    background: var(--warm-white);
-  }
-
-  .gallery-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: end;
-    margin-bottom: 4rem;
-  }
-
-  .gallery-desc {
-    font-size: 0.95rem;
-    line-height: 1.75;
-    color: var(--mid-gray);
-    font-weight: 300;
-  }
-
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-  }
-
-  .gallery-item {
-    aspect-ratio: 1;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .gallery-mosaic {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    gap: 2px;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(9, 1fr);
-    padding: 2px;
-  }
-
-  .gallery-tile {
-    border-radius: 1px;
-  }
-
-  .gallery-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(26, 39, 68, 0);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s;
-    cursor: pointer;
-  }
-
-  .gallery-overlay:hover {
-    background: rgba(26, 39, 68, 0.6);
-  }
-
-  .gallery-overlay-text {
-    color: white;
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    opacity: 0;
-    transition: opacity 0.3s;
-    font-weight: 500;
-  }
-
-  .gallery-overlay:hover .gallery-overlay-text {
-    opacity: 1;
-  }
-
-  /* TESTIMONIALS */
-  .testimonials {
-    background: var(--cream);
-  }
-
-  .testi-grid {
+  .coll-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin-top: 4rem;
   }
 
-  .testi-card {
-    background: white;
-    padding: 2.5rem;
-    position: relative;
-  }
-
-  .testi-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3.5rem;
-    color: var(--terra-light);
-    line-height: 1;
-    margin-bottom: 1rem;
-    display: block;
-  }
-
-  .testi-text {
-    font-size: 0.93rem;
-    line-height: 1.75;
-    color: var(--charcoal);
-    margin-bottom: 2rem;
-    font-style: italic;
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-  }
-
-  .testi-author {
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--terra);
-  }
-
-  .testi-location {
-    font-size: 0.75rem;
-    color: var(--light-gray);
-    margin-top: 0.2rem;
-    letter-spacing: 0.06em;
-  }
-
-  .testi-accent {
-    position: absolute;
-    top: 0; left: 2.5rem;
-    width: 2.5rem;
-    height: 3px;
-    background: var(--terra);
-  }
-
-  /* CTA BANNER */
-  .cta-banner {
-    background: var(--terra-dark);
-    padding: 5rem 4rem;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 3rem;
-  }
-
-  .cta-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.8rem;
-    font-weight: 300;
-    color: white;
-    line-height: 1.2;
-  }
-
-  .cta-title em { font-style: italic; color: var(--gold-light); }
-
-  .cta-sub {
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.6);
-    margin-top: 0.8rem;
-    font-weight: 300;
-  }
-
-  .btn-light {
-    background: var(--gold);
-    color: var(--charcoal);
-    padding: 1.1rem 2.5rem;
-    border: none;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+  .coll-card {
+    position: relative; border-radius: 3px; overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: transform 0.3s;
     cursor: pointer;
-    white-space: nowrap;
-    text-decoration: none;
-    display: inline-block;
-    transition: background 0.2s, transform 0.15s;
+  }
+  .coll-card:hover { transform: translateY(-4px); }
+
+  .coll-mosaic {
+    height: 260px;
+    display: grid; gap: 2px;
   }
 
-  .btn-light:hover { background: var(--gold-light); transform: translateY(-1px); }
-
-  /* NEWSLETTER */
-  .newsletter {
-    background: var(--charcoal);
-    padding: 5rem 4rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
+  .coll-body {
+    padding: 2rem 2rem 2.5rem;
+    flex: 1; display: flex; flex-direction: column;
   }
 
-  .newsletter-title {
+  /* Mexican Smalti card */
+  .coll-card.mex { background: #F0FAFA; }
+  .coll-card.mex .coll-mosaic { background: var(--mex-dark); }
+  .coll-card.mex .coll-tag {
+    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--mex-primary); font-weight: 500; margin-bottom: 0.6rem;
+  }
+  .coll-card.mex .coll-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem;
-    font-weight: 300;
-    color: white;
-    line-height: 1.2;
+    font-size: 1.9rem; font-weight: 400; line-height: 1.15;
+    color: var(--mex-dark); margin-bottom: 0.9rem;
   }
-
-  .newsletter-title em { color: var(--clay); font-style: italic; }
-
-  .newsletter-sub {
-    font-size: 0.88rem;
-    color: rgba(255,255,255,0.45);
-    margin-top: 1rem;
-    line-height: 1.6;
+  .coll-card.mex .coll-name em { font-style: italic; color: var(--mex-primary); }
+  .coll-card.mex .coll-desc {
+    font-size: 0.88rem; line-height: 1.7; color: var(--mid-gray);
+    font-weight: 300; flex: 1; margin-bottom: 1.8rem;
   }
-
-  .newsletter-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  .coll-card.mex .coll-btn {
+    background: var(--mex-primary); color: white;
+    align-self: flex-start;
   }
+  .coll-card.mex .coll-btn:hover { background: var(--mex-dark); }
 
-  .newsletter-row {
-    display: flex;
-    gap: 0;
+  /* Italian Smalti card */
+  .coll-card.ital { background: var(--warm-white); border: 1px solid rgba(196,98,45,0.12); }
+  .coll-card.ital .coll-mosaic { background: var(--navy); }
+  .coll-card.ital .coll-tag {
+    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500; margin-bottom: 0.6rem;
   }
-
-  .newsletter-input {
-    flex: 1;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-right: none;
-    padding: 1rem 1.4rem;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem;
-    color: white;
-    outline: none;
-    transition: border-color 0.2s;
+  .coll-card.ital .coll-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem; font-weight: 400; line-height: 1.15;
+    color: var(--navy); margin-bottom: 0.9rem;
   }
+  .coll-card.ital .coll-name em { font-style: italic; color: var(--terra); }
+  .coll-card.ital .coll-desc {
+    font-size: 0.88rem; line-height: 1.7; color: var(--mid-gray);
+    font-weight: 300; flex: 1; margin-bottom: 1.8rem;
+  }
+  .coll-card.ital .coll-btn {
+    background: var(--terra); color: white; align-self: flex-start;
+  }
+  .coll-card.ital .coll-btn:hover { background: var(--terra-dark); }
 
-  .newsletter-input::placeholder { color: rgba(255,255,255,0.3); }
-  .newsletter-input:focus { border-color: rgba(255,255,255,0.3); }
+  /* Glass & Ceramics card */
+  .coll-card.glas { background: var(--glass-bg); }
+  .coll-card.glas .coll-mosaic { background: var(--glass-dark); }
+  .coll-card.glas .coll-tag {
+    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--glass-primary); font-weight: 500; margin-bottom: 0.6rem;
+  }
+  .coll-card.glas .coll-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem; font-weight: 400; line-height: 1.15;
+    color: var(--glass-dark); margin-bottom: 0.9rem;
+  }
+  .coll-card.glas .coll-name em { font-style: italic; color: var(--glass-primary); }
+  .coll-card.glas .coll-desc {
+    font-size: 0.88rem; line-height: 1.7; color: var(--mid-gray);
+    font-weight: 300; flex: 1; margin-bottom: 1.8rem;
+  }
+  .coll-card.glas .coll-btn {
+    background: var(--glass-primary); color: white; align-self: flex-start;
+  }
+  .coll-card.glas .coll-btn:hover { background: var(--glass-dark); }
 
-  .newsletter-btn {
-    background: var(--terra);
-    color: white;
-    border: none;
-    padding: 1rem 1.8rem;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.83rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
+  .coll-btn {
+    padding: 0.8rem 1.8rem; border: none;
+    font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer; text-decoration: none; display: inline-block;
     transition: background 0.2s;
   }
 
+  .coll-arrow {
+    margin-left: 0.5rem; transition: transform 0.2s;
+  }
+  .coll-card:hover .coll-arrow { transform: translateX(4px); }
+
+  /* FEATURES */
+  .features { background: var(--navy); }
+  .features .section-label { color: var(--gold); }
+  .features .section-title { color: white; }
+  .features .section-title em { color: var(--terra-light); }
+
+  .features-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem; margin-top: 3.5rem;
+  }
+  .feature-bar { width: 2rem; height: 2px; background: var(--terra); margin-bottom: 1.3rem; }
+  .feature-title {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+    font-weight: 400; color: var(--gold-light); margin-bottom: 0.7rem;
+  }
+  .feature-text { font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.5); font-weight: 300; }
+
+  /* CTA */
+  .cta-band {
+    background: var(--terra-dark); padding: 5rem 4rem;
+    display: grid; grid-template-columns: 1fr auto;
+    align-items: center; gap: 3rem;
+  }
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif; font-size: 2.8rem;
+    font-weight: 300; color: white; line-height: 1.2;
+  }
+  .cta-title em { font-style: italic; color: var(--gold-light); }
+  .cta-sub { font-size: 0.9rem; color: rgba(255,255,255,0.55); margin-top: 0.8rem; }
+  .btn-gold { background: var(--gold); color: var(--charcoal); }
+  .btn-gold:hover { background: var(--gold-light); }
+  .btn-white-ghost { color: white; border-color: rgba(255,255,255,0.35); }
+  .btn-white-ghost:hover { background: rgba(255,255,255,0.1); }
+
+  /* NEWSLETTER */
+  .newsletter {
+    background: var(--charcoal); padding: 5rem 4rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .nl-title {
+    font-family: 'Cormorant Garamond', serif; font-size: 2.3rem;
+    font-weight: 300; color: white; line-height: 1.2;
+  }
+  .nl-title em { color: var(--clay); font-style: italic; }
+  .nl-sub { font-size: 0.87rem; color: rgba(255,255,255,0.4); margin-top: 1rem; line-height: 1.6; }
+  .nl-form { display: flex; flex-direction: column; gap: 1rem; }
+  .nl-row { display: flex; }
+  .newsletter-input {
+    flex: 1; background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12); border-right: none;
+    padding: 0.9rem 1.2rem; font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem; color: white; outline: none;
+  }
+  .newsletter-input::placeholder { color: rgba(255,255,255,0.28); }
+  .newsletter-btn {
+    background: var(--terra); color: white; border: none;
+    padding: 0.9rem 1.6rem; font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; cursor: pointer; transition: background 0.2s;
+  }
   .newsletter-btn:hover { background: var(--terra-dark); }
-
-  .newsletter-note {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.25);
-    line-height: 1.5;
-  }
-
-  /* FOOTER */
-  footer {
-    background: #111009;
-    padding: 4rem;
-  }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 4rem;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .footer-brand {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--terra-light);
-    margin-bottom: 1rem;
-  }
-
-  .footer-brand span { color: var(--gold); }
-
-  .footer-tagline {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.35);
-    line-height: 1.65;
-    font-weight: 300;
-  }
-
-  .footer-url {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.2);
-    margin-top: 1.2rem;
-    letter-spacing: 0.05em;
-  }
-
-  .footer-col-title {
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-  }
-
-  .footer-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .footer-links a {
-    font-size: 0.87rem;
-    color: rgba(255,255,255,0.45);
-    text-decoration: none;
-    transition: color 0.2s;
-    font-weight: 300;
-  }
-
-  .footer-links a:hover { color: var(--clay); }
-
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 2rem;
-  }
-
-  .footer-copy {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.18);
-  }
-
-  .footer-socials {
-    display: flex;
-    gap: 1.5rem;
-  }
-
-  .footer-socials a {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.25);
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-
-  .footer-socials a:hover { color: var(--terra-light); }
-
-  /* MOSAIC TILE GENERATION */
-  .mosaic-canvas, .cat-bg, .gallery-mosaic {
-    /* colors injected via JS */
-  }
+  .nl-note { font-size: 0.73rem; color: rgba(255,255,255,0.22); }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ============================================================
+     NAV — edit link URLs and labels here
+     Collection pill links go to section landing pages
+     ============================================================ -->
 <nav>
-  <a class="nav-logo" href="#">All<span>Mosaics</span></a>
+  <a class="nav-logo" href="index.html">All<span>Mosaics</span></a>
   <ul class="nav-links">
-    <li><a href="#categories">Shop</a></li>
-    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="sections/mexican-smalti.html" class="nav-pill mex">Mexican Smalti</a></li>
+    <li><a href="sections/italian-smalti.html" class="nav-pill ital">Italian Smalti</a></li>
+    <li><a href="sections/glass-ceramics.html" class="nav-pill glas">Glass & Ceramics</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#workshops">Workshops</a></li>
-    <li><a href="#" class="nav-cta">Get Started</a></li>
+    <li><a href="#" class="nav-cta">Shop Now</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
+<!-- ============================================================
+     HERO
+     ============================================================ -->
 <section class="hero" id="hero">
   <div class="hero-left">
     <p class="hero-eyebrow">Handcrafted in Australia · Est. 2018</p>
@@ -805,11 +280,11 @@
       Every piece<br>tells a <em>story</em><br>in tile
     </h1>
     <p class="hero-sub">
-      Premium mosaic supplies, custom artwork commissions, and hands-on workshops from Australia's home for the art of tessellation.
+      Australia's home for premium mosaic supplies — Italian smalti, Mexican glass, and hand-fired ceramics for artists at every level.
     </p>
     <div class="hero-actions">
-      <a href="#categories" class="btn-primary">Shop Supplies</a>
-      <a href="#gallery" class="btn-ghost">View Gallery</a>
+      <a href="#collections" class="btn-primary btn-hero">Explore Collections</a>
+      <a href="#about" class="btn-ghost btn-hero-ghost">Our Story</a>
     </div>
     <div class="hero-stats">
       <div>
@@ -821,171 +296,166 @@
         <div class="hero-stat-label">Happy Customers</div>
       </div>
       <div>
-        <div class="hero-stat-num">12+</div>
-        <div class="hero-stat-label">Years Experience</div>
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label">Distinct Collections</div>
       </div>
     </div>
   </div>
   <div class="hero-right">
-    <div class="mosaic-canvas" id="heroMosaic"></div>
+    <div id="heroMosaic"></div>
   </div>
 </section>
 
 <!-- MARQUEE -->
-<div class="marquee-strip">
+<div class="marquee-strip" style="background:var(--terra);">
   <div class="marquee-inner" id="marqueeInner"></div>
 </div>
 
-<!-- CATEGORIES -->
-<section class="categories" id="categories">
-  <div class="cat-header">
+<!-- ============================================================
+     COLLECTION CARDS
+     To update Shopify URLs: replace href="#SHOPIFY-MEXICAN-URL" etc.
+     ============================================================ -->
+<section class="collections" id="collections">
+  <div class="coll-intro">
     <div>
-      <p class="section-label">Our Collection</p>
-      <h2 class="section-title">Tiles for every <em>vision</em></h2>
+      <p class="section-label" style="color:var(--gold);">Three Collections</p>
+      <h2 class="section-title" style="color:var(--navy);">Find your <em>medium</em></h2>
     </div>
-    <a href="#" class="cat-link">Browse all products →</a>
+    <a href="#" style="font-size:0.83rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra);text-decoration:none;border-bottom:1.5px solid var(--terra-light);padding-bottom:2px;">Browse all products →</a>
   </div>
-  <div class="cat-grid" id="catGrid">
-    <!-- injected by JS -->
+
+  <div class="coll-grid">
+
+    <!-- ── MEXICAN SMALTI ── Edit copy, palette in shared.css under --mex-* -->
+    <div class="coll-card mex reveal">
+      <div class="coll-mosaic" id="mexMosaic"></div>
+      <div class="coll-body">
+        <p class="coll-tag">Collection 01</p>
+        <h3 class="coll-name">Mexican <em>Smalti</em></h3>
+        <p class="coll-desc">
+          Hand-poured in Oaxaca and Jalisco, these vibrant glass tiles carry the spirit of Mexican folk art — brilliant turquoise, vivid pastels, and sun-soaked colour that transforms any surface.
+        </p>
+        <!-- TODO: Replace href with Shopify collection URL -->
+        <a href="#SHOPIFY-MEXICAN-URL" class="coll-btn">
+          Shop Mexican Smalti <span class="coll-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ── ITALIAN SMALTI ── Edit copy, palette in shared.css under --terra-* -->
+    <div class="coll-card ital reveal">
+      <div class="coll-mosaic" id="italMosaic"></div>
+      <div class="coll-body">
+        <p class="coll-tag">Collection 02</p>
+        <h3 class="coll-name">Italian <em>Smalti</em></h3>
+        <p class="coll-desc">
+          Authentic Venetian smalti sourced directly from Murano and the great historic glass houses. Rich, deep colour with the luminosity that has defined Byzantine and Renaissance mosaic for centuries.
+        </p>
+        <!-- TODO: Replace href with Shopify collection URL -->
+        <a href="#SHOPIFY-ITALIAN-URL" class="coll-btn">
+          Shop Italian Smalti <span class="coll-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ── GLASS & CERAMICS ── Edit copy, palette in shared.css under --glass-* -->
+    <div class="coll-card glas reveal">
+      <div class="coll-mosaic" id="glasMosaic"></div>
+      <div class="coll-body">
+        <p class="coll-tag">Collection 03</p>
+        <h3 class="coll-name">Glass & <em>Ceramics</em></h3>
+        <p class="coll-desc">
+          Vitreous glass tiles, hand-fired ceramic tesserae, and stained glass pieces for contemporary work. Clean lines, subtle texture, and a cool palette suited to modern interiors and architectural commissions.
+        </p>
+        <!-- TODO: Replace href with Shopify collection URL -->
+        <a href="#SHOPIFY-GLASS-URL" class="coll-btn">
+          Shop Glass & Ceramics <span class="coll-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- FEATURES -->
+<!-- ============================================================
+     FEATURES — edit text here
+     ============================================================ -->
 <section class="features" id="about">
   <p class="section-label">Why AllMosaics</p>
-  <h2 class="section-title" style="color:white;">The craft behind <em>the craft</em></h2>
+  <h2 class="section-title">The craft behind <em>the craft</em></h2>
   <div class="features-grid">
-    <div>
-      <div class="feature-divider"></div>
-      <svg class="feature-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="4" y="4" width="18" height="18" rx="2" fill="#C4622D" opacity="0.9"/>
-        <rect x="26" y="4" width="18" height="18" rx="2" fill="#C9962C" opacity="0.7"/>
-        <rect x="4" y="26" width="18" height="18" rx="2" fill="#4A7B9D" opacity="0.7"/>
-        <rect x="26" y="26" width="18" height="18" rx="2" fill="#C4622D" opacity="0.5"/>
-      </svg>
-      <h3 class="feature-title">Premium Smalti Glass</h3>
-      <p class="feature-text">Authentic Italian smalti glass and vitreous tiles sourced directly from Murano and the finest European suppliers.</p>
+    <div class="reveal">
+      <div class="feature-bar"></div>
+      <h3 class="feature-title">Authentic Sourcing</h3>
+      <p class="feature-text">Every tile is sourced directly — Murano glass houses, Oaxacan artisans, and European ceramic studios. No middlemen, no compromises.</p>
     </div>
-    <div>
-      <div class="feature-divider"></div>
-      <svg class="feature-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="24" r="18" stroke="#C9962C" stroke-width="2" opacity="0.5"/>
-        <circle cx="24" cy="24" r="10" fill="#C4622D" opacity="0.7"/>
-        <circle cx="24" cy="24" r="4" fill="#C9962C"/>
-      </svg>
-      <h3 class="feature-title">Expert Guidance</h3>
-      <p class="feature-text">Our team includes practising mosaic artists with decades of experience — real advice, not just retail.</p>
+    <div class="reveal">
+      <div class="feature-bar"></div>
+      <h3 class="feature-title">Artist-Led Advice</h3>
+      <p class="feature-text">Our team are practising mosaic artists. Real guidance on colour, substrate, adhesive, and technique — not just product listings.</p>
     </div>
-    <div>
-      <div class="feature-divider"></div>
-      <svg class="feature-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8 40 L24 8 L40 40 Z" stroke="#4A7B9D" stroke-width="2" fill="none" opacity="0.7"/>
-        <path d="M14 28 L34 28" stroke="#C4622D" stroke-width="2"/>
-        <circle cx="24" cy="20" r="4" fill="#C9962C" opacity="0.8"/>
-      </svg>
+    <div class="reveal">
+      <div class="feature-bar"></div>
       <h3 class="feature-title">Fast AU Shipping</h3>
       <p class="feature-text">Free shipping on orders over $99. Same-day dispatch from our Adelaide Hills warehouse. NZ shipping available.</p>
     </div>
-    <div>
-      <div class="feature-divider"></div>
-      <svg class="feature-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="8" y="16" width="32" height="22" rx="2" stroke="#C4622D" stroke-width="2" fill="none"/>
-        <path d="M16 16 V12 Q24 6 32 12 V16" stroke="#C9962C" stroke-width="2" fill="none"/>
-        <path d="M18 28 L22 32 L30 22" stroke="#4A7B9D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <h3 class="feature-title">Satisfaction Guarantee</h3>
-      <p class="feature-text">30-day returns, colour-matching assistance, and a community of thousands of Australian mosaic makers backing you up.</p>
+    <div class="reveal">
+      <div class="feature-bar"></div>
+      <h3 class="feature-title">30-Day Returns</h3>
+      <p class="feature-text">Colour-matching assistance and a no-fuss returns policy. We want you to love every tile you receive.</p>
     </div>
   </div>
 </section>
 
-<!-- GALLERY -->
-<section class="gallery" id="gallery">
-  <div class="gallery-header">
-    <div>
-      <p class="section-label">Inspiration Gallery</p>
-      <h2 class="section-title">Made with our <em>tiles</em></h2>
-    </div>
-    <p class="gallery-desc">
-      From intricate bathroom splashbacks to grand public installations, our community creates extraordinary work. Browse the gallery for ideas, or share your own creation.
-    </p>
-  </div>
-  <div class="gallery-grid" id="galleryGrid">
-    <!-- injected by JS -->
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="workshops">
-  <p class="section-label">Community Voices</p>
-  <h2 class="section-title">Loved by <em>makers</em> across Australia</h2>
-  <div class="testi-grid">
-    <div class="testi-card">
-      <div class="testi-accent"></div>
-      <span class="testi-quote">"</span>
-      <p class="testi-text">AllMosaics has completely transformed my studio practice. The smalti glass quality is unlike anything I'd found locally before — and the team actually knows what they're talking about.</p>
-      <p class="testi-author">Sandra R.</p>
-      <p class="testi-location">Mosaic Artist · Melbourne, VIC</p>
-    </div>
-    <div class="testi-card">
-      <div class="testi-accent"></div>
-      <span class="testi-quote">"</span>
-      <p class="testi-text">I took their weekend workshop as a total beginner and left with a finished piece I'm genuinely proud of. The instructors are patient, passionate, and incredibly skilled.</p>
-      <p class="testi-author">Tom K.</p>
-      <p class="testi-location">Workshop Graduate · Adelaide, SA</p>
-    </div>
-    <div class="testi-card">
-      <div class="testi-accent"></div>
-      <span class="testi-quote">"</span>
-      <p class="testi-text">Ordered a bulk smalti set for a public art commission. Colour accuracy was perfect, delivery was fast, and when I needed more of one shade, they matched it within two days.</p>
-      <p class="testi-author">Mei-Lin C.</p>
-      <p class="testi-location">Public Art Contractor · Sydney, NSW</p>
-    </div>
-  </div>
-</section>
-
-<!-- CTA BANNER -->
-<div class="cta-banner">
+<!-- CTA BAND -->
+<div class="cta-band">
   <div>
     <h2 class="cta-title">Ready to start your <em>masterpiece?</em></h2>
-    <p class="cta-sub">Browse 2,400+ products or book a workshop — we'll help you every step of the way.</p>
+    <p class="cta-sub">Browse three distinct collections or get in touch for a custom commission.</p>
   </div>
-  <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;">
-    <a href="#" class="btn-light">Shop Now</a>
-    <a href="#" class="btn-ghost" style="color:white;border-color:rgba(255,255,255,0.35);">Book Workshop</a>
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+    <a href="#collections" class="btn-primary btn-gold">Explore Collections</a>
+    <a href="#" class="btn-ghost btn-white-ghost">Book Workshop</a>
   </div>
 </div>
 
 <!-- NEWSLETTER -->
 <section class="newsletter">
   <div>
-    <h2 class="newsletter-title">Stay <em>inspired</em></h2>
-    <p class="newsletter-sub">New arrivals, project tutorials, workshop dates and exclusive subscriber discounts — straight to your inbox.</p>
+    <h2 class="nl-title">Stay <em>inspired</em></h2>
+    <p class="nl-sub">New arrivals, project tutorials, workshop dates and subscriber-only discounts — straight to your inbox.</p>
   </div>
-  <div class="newsletter-form">
-    <div class="newsletter-row">
+  <div class="nl-form">
+    <div class="nl-row">
       <input type="email" class="newsletter-input" placeholder="your@email.com">
       <button class="newsletter-btn">Subscribe</button>
     </div>
-    <p class="newsletter-note">No spam. Just beautiful things. Unsubscribe any time.</p>
+    <p class="nl-note">No spam. Just beautiful things. Unsubscribe any time.</p>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ============================================================
+     FOOTER — edit links and social URLs here
+     ============================================================ -->
 <footer>
   <div class="footer-grid">
     <div>
       <div class="footer-brand">All<span>Mosaics</span></div>
       <p class="footer-tagline">Australia's home for premium mosaic supplies, commissions, and creative education. Handcrafted passion, tile by tile.</p>
       <p class="footer-url">allmosaics.au</p>
+      <div class="footer-collections">
+        <a href="sections/mexican-smalti.html" class="footer-coll-badge mex">Mexican Smalti</a>
+        <a href="sections/italian-smalti.html" class="footer-coll-badge ital">Italian Smalti</a>
+        <a href="sections/glass-ceramics.html" class="footer-coll-badge glas">Glass & Ceramics</a>
+      </div>
     </div>
     <div>
       <p class="footer-col-title">Shop</p>
       <ul class="footer-links">
-        <li><a href="#">Glass Tiles</a></li>
-        <li><a href="#">Vitreous Tiles</a></li>
-        <li><a href="#">Adhesives & Grout</a></li>
-        <li><a href="#">Tools</a></li>
+        <li><a href="sections/mexican-smalti.html">Mexican Smalti</a></li>
+        <li><a href="sections/italian-smalti.html">Italian Smalti</a></li>
+        <li><a href="sections/glass-ceramics.html">Glass & Ceramics</a></li>
+        <li><a href="#">Tools & Adhesives</a></li>
         <li><a href="#">Kits & Bundles</a></li>
       </ul>
     </div>
@@ -1021,175 +491,30 @@
   </div>
 </footer>
 
+<script src="components/shared.js"></script>
 <script>
-// ---- COLOUR PALETTES ----
-const palettes = {
-  mediterranean: ['#4A7B9D','#5E9AB8','#2D6B8A','#8ABCD4','#C9DCE8','#3A5F7A','#6BB3D4','#1F4F6B'],
-  terracotta:    ['#C4622D','#D4774A','#B34F20','#E8937A','#A03A12','#CC6030','#F0A882','#8B3410'],
-  forest:        ['#2D6B4A','#3A8B60','#1F5038','#4DAA78','#6DC093','#255A3D','#5BAF80','#1A4530'],
-  goldDust:      ['#C9962C','#DBA83C','#B5821E','#E8C472','#F0D898','#A87020','#D4A840','#8C6018'],
-  ocean:         ['#1E5F8A','#2878A8','#164B6F','#3A9ACC','#5BB8E4','#124060','#4AABCC','#0F3355'],
-  byzantium:     ['#6B3A8A','#8A4AAA','#5A2878','#AA6ACC','#C890E8','#4A2068','#9A5AC0','#3A1858'],
-  monochrome:    ['#3C3530','#5A524A','#2A2420','#787068','#989088','#4C4840','#6A6058','#1C1A18'],
-  coral:         ['#D04040','#E85858','#B82828','#F07878','#F8A0A0','#A02020','#D86060','#882020'],
-};
+  // ---- Hero mosaic (mixed all-collection palette) ----
+  AM.buildMosaic('heroMosaic',
+    ['mediterranean','terracotta','goldDust','mexicanBright','turquoise'],
+    12, 16, { gap: '3px', padding: '3px', pattern: 'radial' }
+  );
 
-function randPick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
-function randPickN(arr, n) {
-  const shuffled = [...arr].sort(() => Math.random() - 0.5);
-  return shuffled.slice(0, n);
-}
+  // ---- Collection card mosaics ----
+  AM.buildMosaic('mexMosaic',  ['mexicanBright','mexicanPastel','turquoise'], 14, 8, { gap: '2px' });
+  AM.buildMosaic('italMosaic', ['terracotta','goldDust','byzantium'],         14, 8, { gap: '2px' });
+  AM.buildMosaic('glasMosaic', ['glassBlue','glassSlate','glassCeramic'],     14, 8, { gap: '2px' });
 
-// ---- HERO MOSAIC ----
-(function buildHeroMosaic() {
-  const container = document.getElementById('heroMosaic');
-  const cols = 12, rows = 16, total = cols * rows;
-  const pal = [...palettes.mediterranean, ...palettes.terracotta, ...palettes.goldDust, ...palettes.forest];
+  // ---- Marquee ----
+  AM.buildMarquee('marqueeInner', [
+    'Mexican Smalti', 'Italian Smalti', 'Glass & Ceramics',
+    'Mosaic Kits', 'Tools & Adhesives', 'Workshops',
+    'Ship Nationwide', 'Adelaide Hills · Australia',
+    'Custom Commissions', 'Free Shipping Over $99',
+  ]);
 
-  // Create a "picture" - rough vase/urn shape in lighter tiles
-  for (let i = 0; i < total; i++) {
-    const row = Math.floor(i / cols);
-    const col = i % cols;
-    const div = document.createElement('div');
-    div.className = 'tile';
-
-    // Shape: bright central mosaic pattern
-    const cx = col / cols, cy = row / rows;
-    const distFromCenter = Math.abs(cx - 0.5) + Math.abs(cy - 0.5);
-
-    let color;
-    if (distFromCenter < 0.25 && Math.random() > 0.2) {
-      color = randPick([...palettes.terracotta, ...palettes.goldDust]);
-      div.style.opacity = '0.95';
-    } else if (distFromCenter < 0.45 && Math.random() > 0.3) {
-      color = randPick([...palettes.mediterranean, ...palettes.forest]);
-    } else {
-      color = randPick(palettes.monochrome);
-      div.style.opacity = String(0.3 + Math.random() * 0.4);
-    }
-
-    div.style.background = color;
-    div.style.animationDelay = (i * 0.004) + 's';
-    container.appendChild(div);
-  }
-})();
-
-// ---- MARQUEE ----
-(function buildMarquee() {
-  const items = [
-    'Italian Smalti Glass','Vitreous Tiles','Mosaic Kits','Grout & Adhesives','Custom Commissions',
-    'Workshops & Classes','Tesserae Tools','Byzantine Style','Melbourne • Sydney • Adelaide','Ship Nationwide',
-    'Italian Smalti Glass','Vitreous Tiles','Mosaic Kits','Grout & Adhesives','Custom Commissions',
-    'Workshops & Classes','Tesserae Tools','Byzantine Style','Melbourne • Sydney • Adelaide','Ship Nationwide',
-  ];
-  const inner = document.getElementById('marqueeInner');
-  inner.innerHTML = items.map(t => `<span>${t}</span>`).join('');
-})();
-
-// ---- CATEGORY GRID ----
-const categories = [
-  { name: 'Smalti & Vitreous Glass', desc: 'Italian & European tiles', pal: 'mediterranean' },
-  { name: 'Natural Stone', desc: 'Marble, slate & travertine', pal: 'monochrome' },
-  { name: 'Terracotta & Ceramic', desc: 'Handmade unglazed tiles', pal: 'terracotta' },
-  { name: 'Adhesives & Grout', desc: 'Professional-grade adhesives', pal: 'goldDust' },
-  { name: 'Tools & Accessories', desc: 'Nippers, mesh & more', pal: 'byzantium' },
-];
-
-(function buildCatGrid() {
-  const grid = document.getElementById('catGrid');
-  categories.forEach((cat, idx) => {
-    const card = document.createElement('div');
-    card.className = 'cat-card';
-
-    const cols = idx === 0 ? 8 : 10;
-    const rows = idx === 0 ? 10 : 8;
-    const bgDiv = document.createElement('div');
-    bgDiv.className = 'cat-bg';
-    bgDiv.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-    bgDiv.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
-    bgDiv.style.background = '#111';
-
-    const pal = palettes[cat.pal] || palettes.terracotta;
-    for (let i = 0; i < cols * rows; i++) {
-      const t = document.createElement('div');
-      t.className = 'cat-tile';
-      t.style.background = randPick(pal);
-      t.style.opacity = String(0.5 + Math.random() * 0.5);
-      bgDiv.appendChild(t);
-    }
-
-    const overlay = document.createElement('div');
-    overlay.className = 'cat-overlay';
-    overlay.innerHTML = `<p class="cat-name">${cat.name}</p><p class="cat-desc">${cat.desc}</p>`;
-
-    card.appendChild(bgDiv);
-    card.appendChild(overlay);
-    grid.appendChild(card);
-  });
-})();
-
-// ---- GALLERY ----
-const galleryPalettes = ['terracotta','mediterranean','forest','byzantium','goldDust','ocean','coral','monochrome'];
-
-(function buildGallery() {
-  const grid = document.getElementById('galleryGrid');
-  for (let g = 0; g < 8; g++) {
-    const item = document.createElement('div');
-    item.className = 'gallery-item';
-
-    const pal = palettes[galleryPalettes[g]];
-    const mosaic = document.createElement('div');
-    mosaic.className = 'gallery-mosaic';
-    mosaic.style.background = randPick(pal.slice(-2));
-
-    for (let t = 0; t < 81; t++) {
-      const tile = document.createElement('div');
-      tile.className = 'gallery-tile';
-      tile.style.background = randPick(pal);
-      tile.style.opacity = String(0.6 + Math.random() * 0.4);
-      mosaic.appendChild(tile);
-    }
-
-    const overlay = document.createElement('div');
-    overlay.className = 'gallery-overlay';
-    overlay.innerHTML = `<span class="gallery-overlay-text">View Project</span>`;
-
-    item.appendChild(mosaic);
-    item.appendChild(overlay);
-    grid.appendChild(item);
-  }
-})();
-
-// ---- SCROLL ANIMATION ----
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.style.opacity = '1';
-      e.target.style.transform = 'translateY(0)';
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.testi-card, .feature-divider, .cat-card').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  observer.observe(el);
-});
-
-// newsletter button
-document.querySelector('.newsletter-btn').addEventListener('click', function() {
-  const input = document.querySelector('.newsletter-input');
-  if (input.value && input.value.includes('@')) {
-    this.textContent = 'Subscribed!';
-    this.style.background = '#2D6B4A';
-    input.value = '';
-    setTimeout(() => {
-      this.textContent = 'Subscribe';
-      this.style.background = '';
-    }, 3000);
-  }
-});
+  // ---- Scroll reveal & newsletter ----
+  AM.initScrollReveal();
+  AM.initNewsletterForm();
 </script>
 </body>
 </html>

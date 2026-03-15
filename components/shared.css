@@ -1,0 +1,211 @@
+/* ============================================================
+   AllMosaics — Shared Base Styles
+   Edit this file to update typography, nav and footer across
+   ALL pages at once.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ---- GLOBAL TOKENS ---- */
+:root {
+  --cream:        #F5F0E8;
+  --warm-white:   #FAF7F2;
+  --charcoal:     #2C2825;
+  --mid-gray:     #7A7068;
+  --light-gray:   #B8AFA5;
+
+  /* Italian Smalti (default/hub palette) */
+  --terra:        #C4622D;
+  --terra-dark:   #8B3E18;
+  --terra-light:  #E8937A;
+  --clay:         #D4956A;
+  --navy:         #1A2744;
+  --gold:         #C9962C;
+  --gold-light:   #E8C472;
+
+  /* Mexican Smalti palette */
+  --mex-primary:  #00A896;
+  --mex-dark:     #007A6E;
+  --mex-light:    #7DDDD1;
+  --mex-accent:   #F4845F;
+  --mex-yellow:   #F9C846;
+  --mex-pink:     #F48FB1;
+  --mex-purple:   #B39DDB;
+  --mex-bg:       #F0FAFA;
+
+  /* Glass & Ceramics palette */
+  --glass-primary: #3A6B8A;
+  --glass-dark:    #1F4560;
+  --glass-light:   #8BBDD4;
+  --glass-accent:  #8ECFC4;
+  --glass-warm:    #C8D8E4;
+  --glass-bg:      #F2F7FA;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--charcoal);
+  overflow-x: hidden;
+}
+
+/* ---- SHARED NAV ---- */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.2rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(250,247,242,0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--terra-dark);
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+.nav-logo span { color: var(--gold); }
+
+.nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
+.nav-links a {
+  font-size: 0.82rem; font-weight: 400; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--mid-gray);
+  text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--terra); }
+.nav-links a.active { color: var(--terra); font-weight: 500; }
+
+.nav-cta {
+  background: var(--terra) !important;
+  color: white !important;
+  padding: 0.55rem 1.3rem;
+  border-radius: 2px;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--terra-dark) !important; }
+
+/* Collection badge pills in nav */
+.nav-pill {
+  font-size: 0.72rem !important;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  border: 1px solid currentColor;
+  opacity: 0.75;
+  transition: opacity 0.2s !important;
+}
+.nav-pill:hover { opacity: 1 !important; }
+.nav-pill.mex  { color: var(--mex-primary) !important; }
+.nav-pill.ital { color: var(--terra) !important; }
+.nav-pill.glas { color: var(--glass-primary) !important; }
+
+/* ---- SHARED FOOTER ---- */
+footer {
+  background: #111009;
+  padding: 3.5rem 4rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem; font-weight: 600;
+  color: var(--terra-light); margin-bottom: 0.8rem;
+}
+.footer-brand span { color: var(--gold); }
+
+.footer-tagline { font-size: 0.83rem; color: rgba(255,255,255,0.35); line-height: 1.65; font-weight: 300; }
+.footer-url { font-size: 0.73rem; color: rgba(255,255,255,0.2); margin-top: 1rem; }
+
+.footer-col-title {
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3); font-weight: 500; margin-bottom: 1.2rem;
+}
+
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+.footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; font-weight: 300; }
+.footer-links a:hover { color: var(--terra-light); }
+
+.footer-collections {
+  display: flex; gap: 1rem; margin-top: 1.2rem; flex-wrap: wrap;
+}
+.footer-coll-badge {
+  font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.3rem 0.8rem; border-radius: 20px; border: 1px solid;
+  text-decoration: none; transition: opacity 0.2s; opacity: 0.6;
+}
+.footer-coll-badge:hover { opacity: 1; }
+.footer-coll-badge.mex  { color: var(--mex-light); border-color: var(--mex-light); }
+.footer-coll-badge.ital { color: var(--gold-light); border-color: var(--gold-light); }
+.footer-coll-badge.glas { color: var(--glass-light); border-color: var(--glass-light); }
+
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center; padding-top: 2rem;
+}
+.footer-copy { font-size: 0.76rem; color: rgba(255,255,255,0.18); }
+.footer-socials { display: flex; gap: 1.5rem; }
+.footer-socials a {
+  font-size: 0.76rem; color: rgba(255,255,255,0.25); text-decoration: none;
+  letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+}
+.footer-socials a:hover { color: var(--terra-light); }
+
+/* ---- SHARED SECTION UTILITIES ---- */
+section { padding: 5.5rem 4rem; }
+
+.section-label {
+  font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+  font-weight: 500; margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.9rem; font-weight: 300; line-height: 1.15; max-width: 540px;
+}
+.section-title em { font-style: italic; }
+
+.btn-primary {
+  padding: 0.95rem 2.2rem; border: none;
+  font-family: 'DM Sans', sans-serif; font-size: 0.83rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover { transform: translateY(-1px); }
+
+.btn-ghost {
+  padding: 0.95rem 1.6rem; border: 1.5px solid;
+  font-family: 'DM Sans', sans-serif; font-size: 0.83rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s;
+  background: transparent;
+}
+
+/* Mosaic tile fade-in */
+.tile { border-radius: 1px; opacity: 0; animation: tileFadeIn 0.6s forwards; }
+@keyframes tileFadeIn { to { opacity: 1; } }
+
+/* Marquee */
+.marquee-strip { padding: 0.85rem 0; overflow: hidden; white-space: nowrap; }
+.marquee-inner { display: inline-block; animation: marqueeScroll 28s linear infinite; }
+.marquee-inner span { font-size: 0.73rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.85); font-weight: 400; margin-right: 3rem; }
+.marquee-inner span::before { content: '◆'; margin-right: 3rem; color: rgba(255,255,255,0.4); font-size: 0.5rem; vertical-align: middle; }
+@keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Scroll reveal */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
