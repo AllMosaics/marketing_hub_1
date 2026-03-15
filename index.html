@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllMosaics — Australia's Home for Mosaic Art & Supplies</title>
+<link rel="stylesheet" href="components/shared.css">
+<style>
+  /* ============================================================
+     index.html — Hub portal styles
+     Edit collection card colours/copy here.
+     Shared nav/footer/utilities live in components/shared.css
+     ============================================================ */
+
+  body { background: var(--warm-white); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+
+  .hero-left {
+    padding: 8rem 4rem 5rem;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.5rem; font-weight: 500;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4.5rem; font-weight: 300; line-height: 1.1;
+    color: var(--navy); margin-bottom: 1.8rem;
+  }
+  .hero-title em { font-style: italic; color: var(--terra); }
+
+  .hero-sub {
+    font-size: 0.97rem; line-height: 1.75; color: var(--mid-gray);
+    max-width: 420px; margin-bottom: 2.8rem; font-weight: 300;
+  }
+
+  .hero-actions { display: flex; gap: 1rem; align-items: center; }
+
+  .btn-hero {
+    background: var(--terra); color: white;
+  }
+  .btn-hero:hover { background: var(--terra-dark); }
+
+  .btn-hero-ghost {
+    color: var(--navy); border-color: var(--navy);
+  }
+  .btn-hero-ghost:hover { background: var(--navy); color: white; }
+
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-top: 4rem;
+    padding-top: 3rem; border-top: 1px solid rgba(0,0,0,0.08);
+  }
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.3rem; font-weight: 600; color: var(--terra);
+  }
+  .hero-stat-label {
+    font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--light-gray); margin-top: 0.2rem;
+  }
+
+  .hero-right {
+    background: var(--navy); overflow: hidden; position: relative;
+  }
+  #heroMosaic { width: 100%; height: 100%; }
+
+  /* ============================================================
+     COLLECTION CARDS — main hub feature
+     Edit each .coll-card to customise per collection
+     ============================================================ */
+  .collections { background: var(--cream); }
+
+  .coll-intro {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 4rem;
+  }
+
+  .coll-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .coll-card {
+    position: relative; border-radius: 3px; overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+  .coll-card:hover { transform: translateY(-4px); }
+
+  .coll-mosaic {
+    height: 260px;
+    display: grid; gap: 2px;
+  }
+
+  .coll-body {
+    padding: 2rem 2rem 2.5rem;
+    flex: 1; display: flex; flex-direction: column;
+  }
+
+  /* Mexican Smalti card */
+  .coll-card.mex { background: #F0FAFA; }
+  .coll-card.mex .coll-mosaic { background: var(--mex-dark); }
+  .coll-card.mex .coll-tag {
+    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--mex-primary); font-weight: 500; margin-bottom: 0.6rem;
+  }
+  .coll-card.mex .coll-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem; font-weight: 400; line-height: 1.15;
+    color: var(--mex-dark); margin-bottom: 0.9rem;
+  }
+  .coll-card.mex .coll-name em { font-style: italic; color: var(--mex-primary); }
+  .coll-card.mex .coll-desc {
+    font-size: 0.88rem; line-height: 1.7; color: var(--mid-gray);
+    font-weight: 300; flex: 1; margin-bottom: 1.8rem;
+  }
+  .coll-card.mex .coll-btn {
+    background: var(--mex-primary); color: white;
+    align-self: flex-start;
+  }
+  .coll-card.mex .coll-btn:hover { background: var(--mex-dark); }
+
+  /* Italian Smalti card */
+  .coll-card.ital { background: var(--warm-white); border: 1px solid rgba(196,98,45,0.12); }
+  .coll-card.ital .coll-mosaic { background: var(--navy); }
+  .coll-card.ital .coll-tag {
+    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500; margin-bottom: 0.6rem;
+  }
+  .coll-card.ital .coll-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem; font-weight: 400; line-height: 1.15;
+    color: var(--navy); margin-bottom: 0.9rem;
+  }
+  .coll-card.ital .coll-name em { font-style: italic; color: var(--terra); }
+  .coll-card.ital .coll-desc {
+    font-size: 0.88rem; line-height: 1.7; color: var(--mid-gray);
+    font-weight: 300; flex: 1; margin-bottom: 1.8rem;
+  }
+  .coll-card.ital .coll-btn {
+    background: var(--terra); color: white; align-self: flex-start;
+  }
+  .coll-card.ital .coll-btn:hover { background: var(--terra-dark); }
+
+  /* Glass & Ceramics card */
+  .coll-card.glas { background: var(--glass-bg); }
+  .coll-card.glas .coll-mosaic { background: var(--glass-dark); }
+  .coll-card.glas .coll-tag {
+    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--glass-primary); font-weight: 500; margin-bottom: 0.6rem;
+  }
+  .coll-card.glas .coll-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem; font-weight: 400; line-height: 1.15;
+    color: var(--glass-dark); margin-bottom: 0.9rem;
+  }
+  .coll-card.glas .coll-name em { font-style: italic; color: var(--glass-primary); }
+  .coll-card.glas .coll-desc {
+    font-size: 0.88rem; line-height: 1.7; color: var(--mid-gray);
+    font-weight: 300; flex: 1; margin-bottom: 1.8rem;
+  }
+  .coll-card.glas .coll-btn {
+    background: var(--glass-primary); color: white; align-self: flex-start;
+  }
+  .coll-card.glas .coll-btn:hover { background: var(--glass-dark); }
+
+  .coll-btn {
+    padding: 0.8rem 1.8rem; border: none;
+    font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer; text-decoration: none; display: inline-block;
+    transition: background 0.2s;
+  }
+
+  .coll-arrow {
+    margin-left: 0.5rem; transition: transform 0.2s;
+  }
+  .coll-card:hover .coll-arrow { transform: translateX(4px); }
+
+  /* FEATURES */
+  .features { background: var(--navy); }
+  .features .section-label { color: var(--gold); }
+  .features .section-title { color: white; }
+  .features .section-title em { color: var(--terra-light); }
+
+  .features-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem; margin-top: 3.5rem;
+  }
+  .feature-bar { width: 2rem; height: 2px; background: var(--terra); margin-bottom: 1.3rem; }
+  .feature-title {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+    font-weight: 400; color: var(--gold-light); margin-bottom: 0.7rem;
+  }
+  .feature-text { font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.5); font-weight: 300; }
+
+  /* CTA */
+  .cta-band {
+    background: var(--terra-dark); padding: 5rem 4rem;
+    display: grid; grid-template-columns: 1fr auto;
+    align-items: center; gap: 3rem;
+  }
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif; font-size: 2.8rem;
+    font-weight: 300; color: white; line-height: 1.2;
+  }
+  .cta-title em { font-style: italic; color: var(--gold-light); }
+  .cta-sub { font-size: 0.9rem; color: rgba(255,255,255,0.55); margin-top: 0.8rem; }
+  .btn-gold { background: var(--gold); color: var(--charcoal); }
+  .btn-gold:hover { background: var(--gold-light); }
+  .btn-white-ghost { color: white; border-color: rgba(255,255,255,0.35); }
+  .btn-white-ghost:hover { background: rgba(255,255,255,0.1); }
+
+  /* NEWSLETTER */
+  .newsletter {
+    background: var(--charcoal); padding: 5rem 4rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .nl-title {
+    font-family: 'Cormorant Garamond', serif; font-size: 2.3rem;
+    font-weight: 300; color: white; line-height: 1.2;
+  }
+  .nl-title em { color: var(--clay); font-style: italic; }
+  .nl-sub { font-size: 0.87rem; color: rgba(255,255,255,0.4); margin-top: 1rem; line-height: 1.6; }
+  .nl-form { display: flex; flex-direction: column; gap: 1rem; }
+  .nl-row { display: flex; }
+  .newsletter-input {
+    flex: 1; background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12); border-right: none;
+    padding: 0.9rem 1.2rem; font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem; color: white; outline: none;
+  }
+  .newsletter-input::placeholder { color: rgba(255,255,255,0.28); }
+  .newsletter-btn {
+    background: var(--terra); color: white; border: none;
+    padding: 0.9rem 1.6rem; font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; cursor: pointer; transition: background 0.2s;
+  }
+  .newsletter-btn:hover { background: var(--terra-dark); }
+  .nl-note { font-size: 0.73rem; color: rgba(255,255,255,0.22); }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV — edit link URLs and labels here
+     Collection pill links go to section landing pages
+     ============================================================ -->
+<nav>
+  <a class="nav-logo" href="index.html">All<span>Mosaics</span></a>
+  <ul class="nav-links">
+    <li><a href="https://www.smaltiaustralia.com" class="nav-pill mex">Mexican Smalti</a></li>
+    <li><a href="https://www.mosaicbazaar.com.au" class="nav-pill ital">Italian Smalti</a></li>
+    <li><a href="sections/glass-ceramics.html" class="nav-pill glas">Glass & Ceramics</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#" class="nav-cta">Shop Now</a></li>
+  </ul>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Handcrafted in Australia · Est. 2018</p>
+    <h1 class="hero-title">
+      Every piece<br>tells a <em>story</em><br>in tile
+    </h1>
+    <p class="hero-sub">
+      Australia's home for premium mosaic supplies — Italian smalti, Mexican glass, and hand-fired ceramics for artists at every level.
+    </p>
+    <div class="hero-actions">
+      <a href="#collections" class="btn-primary btn-hero">Explore Collections</a>
+      <a href="#about" class="btn-ghost btn-hero-ghost">Our Story</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">2,400+</div>
+        <div class="hero-stat-label">Products</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">1,800+</div>
+        <div class="hero-stat-label">Happy Customers</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label">Distinct Collections</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div id="heroMosaic"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip" style="background:var(--terra);">
+  <div class="marquee-inner" id="marqueeInner"></div>
+</div>
+
+<!-- ============================================================
+     COLLECTION CARDS
+     To update Shopify URLs: replace href="#SHOPIFY-MEXICAN-URL" etc.
+     ============================================================ -->
+<section class="collections" id="collections">
+  <div class="coll-intro">
+    <div>
+      <p class="section-label" style="color:var(--gold);">Three Collections</p>
+      <h2 class="section-title" style="color:var(--navy);">Find your <em>medium</em></h2>
+    </div>
+    <a href="#" style="font-size:0.83rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra);text-decoration:none;border-bottom:1.5px solid var(--terra-light);padding-bottom:2px;">Browse all products →</a>
+  </div>
+
+  <div class="coll-grid">
+
+    <!-- ── MEXICAN SMALTI ── Edit copy, palette in shared.css under --mex-* -->
+    <div class="coll-card mex reveal">
+      <div class="coll-mosaic" id="mexMosaic"></div>
+      <div class="coll-body">
+        <p class="coll-tag">Collection 01</p>
+        <h3 class="coll-name">Mexican <em>Smalti</em></h3>
+        <p class="coll-desc">
+          Hand-poured in Oaxaca and Jalisco, these vibrant glass tiles carry the spirit of Mexican folk art — brilliant turquoise, vivid pastels, and sun-soaked colour that transforms any surface.
+        </p>
+        <!-- TODO: Replace href with Shopify collection URL -->
+        <a href="#SHOPIFY-MEXICAN-URL" class="coll-btn">
+          Shop Mexican Smalti <span class="coll-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ── ITALIAN SMALTI ── Edit copy, palette in shared.css under --terra-* -->
+    <div class="coll-card ital reveal">
+      <div class="coll-mosaic" id="italMosaic"></div>
+      <div class="coll-body">
+        <p class="coll-tag">Collection 02</p>
+        <h3 class="coll-name">Italian <em>Smalti</em></h3>
+        <p class="coll-desc">
+          Authentic Venetian smalti sourced directly from Murano and the great historic glass houses. Rich, deep colour with the luminosity that has defined Byzantine and Renaissance mosaic for centuries.
+        </p>
+        <!-- TODO: Replace href with Shopify collection URL -->
+        <a href="#SHOPIFY-ITALIAN-URL" class="coll-btn">
+          Shop Italian Smalti <span class="coll-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ── GLASS & CERAMICS ── Edit copy, palette in shared.css under --glass-* -->
+    <div class="coll-card glas reveal">
+      <div class="coll-mosaic" id="glasMosaic"></div>
+      <div class="coll-body">
+        <p class="coll-tag">Collection 03</p>
+        <h3 class="coll-name">Glass & <em>Ceramics</em></h3>
+        <p class="coll-desc">
+          Vitreous glass tiles, hand-fired ceramic tesserae, and stained glass pieces for contemporary work. Clean lines, subtle texture, and a cool palette suited to modern interiors and architectural commissions.
+        </p>
+        <!-- TODO: Replace href with Shopify collection URL -->
+        <a href="#SHOPIFY-GLASS-URL" class="coll-btn">
+          Shop Glass & Ceramics <span class="coll-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FEATURES — edit text here
+     ============================================================ -->
+<section class="features" id="about">
+  <p class="section-label">Why AllMosaics</p>
+  <h2 class="section-title">The craft behind <em>the craft</em></h2>
+  <div class="features-grid">
+    <div class="reveal">
+      <div class="feature-bar"></div>
+      <h3 class="feature-title">Authentic Sourcing</h3>
+      <p class="feature-text">Every tile is sourced directly — Murano glass houses, Oaxacan artisans, and European ceramic studios. No middlemen, no compromises.</p>
+    </div>
+    <div class="reveal">
+      <div class="feature-bar"></div>
+      <h3 class="feature-title">Artist-Led Advice</h3>
+      <p class="feature-text">Our team are practising mosaic artists. Real guidance on colour, substrate, adhesive, and technique — not just product listings.</p>
+    </div>
+    <div class="reveal">
+      <div class="feature-bar"></div>
+      <h3 class="feature-title">Fast AU Shipping</h3>
+      <p class="feature-text">Free shipping on orders over $99. Same-day dispatch from our Adelaide Hills warehouse. NZ shipping available.</p>
+    </div>
+    <div class="reveal">
+      <div class="feature-bar"></div>
+      <h3 class="feature-title">30-Day Returns</h3>
+      <p class="feature-text">Colour-matching assistance and a no-fuss returns policy. We want you to love every tile you receive.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div>
+    <h2 class="cta-title">Ready to start your <em>masterpiece?</em></h2>
+    <p class="cta-sub">Browse three distinct collections or get in touch for a custom commission.</p>
+  </div>
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+    <a href="#collections" class="btn-primary btn-gold">Explore Collections</a>
+    <a href="#" class="btn-ghost btn-white-ghost">Book Workshop</a>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div>
+    <h2 class="nl-title">Stay <em>inspired</em></h2>
+    <p class="nl-sub">New arrivals, project tutorials, workshop dates and subscriber-only discounts — straight to your inbox.</p>
+  </div>
+  <div class="nl-form">
+    <div class="nl-row">
+      <input type="email" class="newsletter-input" placeholder="your@email.com">
+      <button class="newsletter-btn">Subscribe</button>
+    </div>
+    <p class="nl-note">No spam. Just beautiful things. Unsubscribe any time.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER — edit links and social URLs here
+     ============================================================ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">All<span>Mosaics</span></div>
+      <p class="footer-tagline">Australia's home for premium mosaic supplies, commissions, and creative education. Handcrafted passion, tile by tile.</p>
+      <p class="footer-url">allmosaics.au</p>
+      <div class="footer-collections">
+        <a href="sections/mexican-smalti.html" class="footer-coll-badge mex">Mexican Smalti</a>
+        <a href="sections/italian-smalti.html" class="footer-coll-badge ital">Italian Smalti</a>
+        <a href="sections/glass-ceramics.html" class="footer-coll-badge glas">Glass & Ceramics</a>
+      </div>
+    </div>
+    <div>
+      <p class="footer-col-title">Shop</p>
+      <ul class="footer-links">
+        <li><a href="sections/mexican-smalti.html">Mexican Smalti</a></li>
+        <li><a href="sections/italian-smalti.html">Italian Smalti</a></li>
+        <li><a href="sections/glass-ceramics.html">Glass & Ceramics</a></li>
+        <li><a href="#">Tools & Adhesives</a></li>
+        <li><a href="#">Kits & Bundles</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Learn</p>
+      <ul class="footer-links">
+        <li><a href="#">Workshops</a></li>
+        <li><a href="#">Tutorials</a></li>
+        <li><a href="#">Project Ideas</a></li>
+        <li><a href="#">Community</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Info</p>
+      <ul class="footer-links">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Shipping</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 AllMosaics · ABN 00 000 000 000 · allmosaics.au</p>
+    <div class="footer-socials">
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+</footer>
+
+<script src="components/shared.js"></script>
+<script>
+  // ---- Hero mosaic (mixed all-collection palette) ----
+  AM.buildMosaic('heroMosaic',
+    ['mediterranean','terracotta','goldDust','mexicanBright','turquoise'],
+    12, 16, { gap: '3px', padding: '3px', pattern: 'radial' }
+  );
+
+  // ---- Collection card mosaics ----
+  AM.buildMosaic('mexMosaic',  ['mexicanBright','mexicanPastel','turquoise'], 14, 8, { gap: '2px' });
+  AM.buildMosaic('italMosaic', ['terracotta','goldDust','byzantium'],         14, 8, { gap: '2px' });
+  AM.buildMosaic('glasMosaic', ['glassBlue','glassSlate','glassCeramic'],     14, 8, { gap: '2px' });
+
+  // ---- Marquee ----
+  AM.buildMarquee('marqueeInner', [
+    'Mexican Smalti', 'Italian Smalti', 'Glass & Ceramics',
+    'Mosaic Kits', 'Tools & Adhesives', 'Workshops',
+    'Ship Nationwide', 'Adelaide Hills · Australia',
+    'Custom Commissions', 'Free Shipping Over $99',
+  ]);
+
+  // ---- Scroll reveal & newsletter ----
+  AM.initScrollReveal();
+  AM.initNewsletterForm();
+</script>
+</body>
+</html>

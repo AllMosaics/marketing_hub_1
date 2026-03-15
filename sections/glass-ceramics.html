@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glass & Ceramics — AllMosaics</title>
+<link rel="stylesheet" href="../components/shared.css">
+<style>
+  /* ============================================================
+     glass-ceramics.html — Section styles
+     Palette: slate blue, cool grey, soft teal — clean, modern
+     Shared nav/footer/utilities: ../components/shared.css
+     ============================================================ */
+
+  body { background: var(--glass-bg); }
+
+  nav { border-bottom-color: rgba(58,107,138,0.2); }
+  .nav-logo { color: var(--glass-dark); }
+  .nav-links a:hover { color: var(--glass-primary); }
+  .nav-cta { background: var(--glass-primary) !important; }
+  .nav-cta:hover { background: var(--glass-dark) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 88vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+    background: #EEF4F8;
+  }
+
+  .hero-left { padding: 7rem 4rem 5rem; display: flex; flex-direction: column; justify-content: center; }
+
+  .hero-breadcrumb { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid-gray); margin-bottom: 1rem; }
+  .hero-breadcrumb a { color: var(--glass-primary); text-decoration: none; }
+
+  .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--glass-primary); margin-bottom: 1.3rem; font-weight: 500; }
+
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: 4.2rem; font-weight: 300; line-height: 1.1; color: var(--glass-dark); margin-bottom: 1.8rem; }
+  .hero-title em { font-style: italic; color: var(--glass-primary); }
+
+  .hero-sub { font-size: 0.97rem; line-height: 1.78; color: var(--mid-gray); max-width: 420px; margin-bottom: 2.5rem; font-weight: 300; }
+
+  .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+  .btn-glas { background: var(--glass-primary); color: white; }
+  .btn-glas:hover { background: var(--glass-dark); }
+  .btn-glas-ghost { color: var(--glass-dark); border-color: var(--glass-primary); }
+  .btn-glas-ghost:hover { background: var(--glass-primary); color: white; }
+
+  .hero-right { background: var(--glass-dark); overflow: hidden; }
+  #heroMosaic { width: 100%; height: 100%; }
+
+  /* MARQUEE */
+  .marquee-strip { background: var(--glass-primary); }
+
+  /* TILE TYPE TABS */
+  .tile-types { background: white; border-bottom: 1px solid rgba(58,107,138,0.1); }
+  .tile-types-inner { display: flex; gap: 0; padding: 0 4rem; }
+  .tile-tab {
+    padding: 1.2rem 2rem; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--mid-gray); cursor: pointer; border-bottom: 2px solid transparent;
+    transition: all 0.2s; font-weight: 400; text-decoration: none; display: block;
+  }
+  .tile-tab:hover { color: var(--glass-primary); }
+  .tile-tab.active { color: var(--glass-primary); border-bottom-color: var(--glass-primary); font-weight: 500; }
+
+  /* PRODUCTS */
+  .products { background: white; }
+  .products .section-label { color: var(--glass-primary); }
+  .products .section-title { color: var(--glass-dark); }
+  .products .section-title em { color: var(--glass-primary); }
+
+  .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
+
+  .product-card { background: var(--glass-bg); border-radius: 3px; overflow: hidden; transition: transform 0.25s; cursor: pointer; }
+  .product-card:hover { transform: translateY(-3px); }
+  .product-thumb { height: 180px; display: grid; gap: 2px; background: var(--glass-dark); }
+  .product-info { padding: 1.3rem 1.5rem 1.8rem; }
+  .product-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; color: var(--glass-dark); margin-bottom: 0.4rem; }
+  .product-desc { font-size: 0.83rem; color: var(--mid-gray); line-height: 1.6; font-weight: 300; margin-bottom: 1rem; }
+  .product-link { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--glass-primary); text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--glass-light); padding-bottom: 1px; }
+
+  /* APPLICATIONS — where glass & ceramics shine */
+  .applications { background: var(--glass-bg); }
+  .applications .section-label { color: var(--glass-primary); }
+  .applications .section-title { color: var(--glass-dark); }
+  .applications .section-title em { color: var(--glass-primary); }
+
+  .app-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
+
+  .app-card {
+    background: white; padding: 2.2rem 2.5rem;
+    border-left: 3px solid var(--glass-primary);
+    transition: border-color 0.2s;
+  }
+  .app-card:hover { border-left-color: var(--glass-accent); }
+  .app-icon { width: 40px; height: 40px; margin-bottom: 1rem; }
+  .app-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--glass-dark); margin-bottom: 0.6rem; }
+  .app-text { font-size: 0.88rem; line-height: 1.7; color: var(--mid-gray); font-weight: 300; }
+
+  /* ABOUT */
+  .about-section { background: var(--glass-dark); display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .about-mosaic { height: 460px; display: grid; gap: 2px; background: rgba(0,0,0,0.3); }
+  .about-content { padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center; }
+  .about-content .section-label { color: var(--glass-light); }
+  .about-content .section-title { color: white; }
+  .about-content .section-title em { color: var(--glass-accent); }
+  .about-body { font-size: 0.95rem; line-height: 1.78; color: rgba(255,255,255,0.55); font-weight: 300; margin-top: 1.5rem; margin-bottom: 1rem; }
+  .glass-rule { width: 3rem; height: 2px; background: var(--glass-accent); margin: 1.5rem 0; }
+
+  /* CTA */
+  .cta-band { background: var(--glass-primary); padding: 4.5rem 4rem; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 3rem; }
+  .cta-title { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 300; color: white; line-height: 1.2; }
+  .cta-title em { font-style: italic; color: var(--glass-warm); }
+  .cta-sub { font-size: 0.88rem; color: rgba(255,255,255,0.6); margin-top: 0.7rem; }
+  .btn-glass-warm { background: var(--glass-warm); color: var(--glass-dark); }
+  .btn-glass-warm:hover { background: white; }
+
+  /* NEWSLETTER */
+  .newsletter { background: #172635; padding: 4.5rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .nl-title { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: white; line-height: 1.2; }
+  .nl-title em { color: var(--glass-light); font-style: italic; }
+  .nl-sub { font-size: 0.86rem; color: rgba(255,255,255,0.4); margin-top: 1rem; line-height: 1.6; }
+  .nl-form { display: flex; flex-direction: column; gap: 1rem; }
+  .nl-row { display: flex; }
+  .newsletter-input { flex: 1; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-right: none; padding: 0.9rem 1.2rem; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; color: white; outline: none; }
+  .newsletter-input::placeholder { color: rgba(255,255,255,0.28); }
+  .newsletter-btn { background: var(--glass-primary); color: white; border: none; padding: 0.9rem 1.6rem; font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+  .newsletter-btn:hover { background: var(--glass-dark); }
+  .nl-note { font-size: 0.73rem; color: rgba(255,255,255,0.22); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="../index.html">All<span style="color:var(--glass-primary)">Mosaics</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">← Hub</a></li>
+    <li><a href="mexican-smalti.html" class="nav-pill mex">Mexican Smalti</a></li>
+    <li><a href="italian-smalti.html" class="nav-pill ital">Italian Smalti</a></li>
+    <li><a href="glass-ceramics.html" class="nav-pill glas active">Glass & Ceramics</a></li>
+    <!-- TODO: Replace with Shopify collection URL -->
+    <li><a href="#SHOPIFY-GLASS-URL" class="nav-cta">Shop Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-breadcrumb"><a href="../index.html">AllMosaics</a> / Glass & Ceramics</p>
+    <p class="hero-eyebrow">Collection 03 · Vitreous Glass & Hand-fired Ceramics</p>
+    <h1 class="hero-title">
+      Clean lines,<br><em>cool depth</em>,<br>modern form
+    </h1>
+    <p class="hero-sub">
+      Vitreous glass, hand-fired ceramic tesserae, and stained glass for contemporary mosaic work. Precision colour, consistent sizing, and a cool palette built for modern interiors and architectural commissions.
+    </p>
+    <div class="hero-actions">
+      <a href="#SHOPIFY-GLASS-URL" class="btn-primary btn-glas">Shop This Collection</a>
+      <a href="#about" class="btn-ghost btn-glas-ghost">About the Materials</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div id="heroMosaic"></div>
+  </div>
+</section>
+
+<!-- TILE TYPE TABS -->
+<div class="tile-types">
+  <div class="tile-types-inner">
+    <a href="#SHOPIFY-GLASS-URL" class="tile-tab active">Vitreous Glass</a>
+    <a href="#SHOPIFY-GLASS-URL" class="tile-tab">Hand-fired Ceramic</a>
+    <a href="#SHOPIFY-GLASS-URL" class="tile-tab">Stained Glass</a>
+    <a href="#SHOPIFY-GLASS-URL" class="tile-tab">Iridescent Glass</a>
+    <a href="#SHOPIFY-GLASS-URL" class="tile-tab">Mirror Tiles</a>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner" id="marqueeInner"></div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <p class="section-label">Featured Products</p>
+  <h2 class="section-title">Precision tiles for <em>contemporary</em> work</h2>
+  <div class="product-grid">
+    <div class="product-card reveal">
+      <div class="product-thumb" id="prod1"></div>
+      <div class="product-info">
+        <h3 class="product-name">Vitreous Glass Tiles</h3>
+        <p class="product-desc">2×2cm machine-cut vitreous glass in 150+ colours — consistent sizing ideal for detailed work and large installations.</p>
+        <a href="#SHOPIFY-GLASS-URL" class="product-link">View in store →</a>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-thumb" id="prod2"></div>
+      <div class="product-info">
+        <h3 class="product-name">Hand-fired Ceramic Tesserae</h3>
+        <p class="product-desc">Irregular hand-cut ceramic tiles with a matte, unglazed finish — beautiful texture for wall panels and garden features.</p>
+        <a href="#SHOPIFY-GLASS-URL" class="product-link">View in store →</a>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-thumb" id="prod3"></div>
+      <div class="product-info">
+        <h3 class="product-name">Iridescent Glass Mix</h3>
+        <p class="product-desc">Dichroic and iridescent glass tiles that shift colour with light — a dramatic accent for feature walls and sculpture.</p>
+        <a href="#SHOPIFY-GLASS-URL" class="product-link">View in store →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATIONS -->
+<section class="applications" id="applications">
+  <p class="section-label">Where it works best</p>
+  <h2 class="section-title">Built for <em>modern</em> spaces</h2>
+  <div class="app-grid">
+    <div class="app-card reveal">
+      <svg class="app-icon" viewBox="0 0 40 40" fill="none">
+        <rect x="4" y="8" width="32" height="24" rx="2" stroke="var(--glass-primary)" stroke-width="1.5" fill="none"/>
+        <rect x="8" y="12" width="10" height="10" rx="1" fill="var(--glass-primary)" opacity="0.4"/>
+        <rect x="22" y="12" width="10" height="10" rx="1" fill="var(--glass-accent)" opacity="0.5"/>
+        <rect x="8" y="26" width="24" height="3" rx="1" fill="var(--glass-primary)" opacity="0.2"/>
+      </svg>
+      <h3 class="app-title">Bathroom Splashbacks</h3>
+      <p class="app-text">Vitreous glass is fully waterproof and UV-stable — perfect for wet areas, pools, and bathroom feature walls. Consistent tile sizing makes alignment effortless.</p>
+    </div>
+    <div class="app-card reveal">
+      <svg class="app-icon" viewBox="0 0 40 40" fill="none">
+        <path d="M8 32 L8 12 L20 6 L32 12 L32 32 Z" stroke="var(--glass-primary)" stroke-width="1.5" fill="none"/>
+        <rect x="16" y="20" width="8" height="12" rx="1" fill="var(--glass-accent)" opacity="0.5"/>
+      </svg>
+      <h3 class="app-title">Architectural Commissions</h3>
+      <p class="app-text">Large format vitreous and ceramic panels for commercial interiors, public art, and heritage restoration work. Bulk pricing available.</p>
+    </div>
+    <div class="app-card reveal">
+      <svg class="app-icon" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="14" stroke="var(--glass-primary)" stroke-width="1.5" fill="none"/>
+        <circle cx="20" cy="20" r="6" fill="var(--glass-accent)" opacity="0.5"/>
+        <circle cx="20" cy="20" r="2" fill="var(--glass-primary)"/>
+      </svg>
+      <h3 class="app-title">Garden & Outdoor Features</h3>
+      <p class="app-text">Frost-resistant ceramic tesserae that hold colour outdoors. Ideal for garden walls, water features, and sculptural installations.</p>
+    </div>
+    <div class="app-card reveal">
+      <svg class="app-icon" viewBox="0 0 40 40" fill="none">
+        <rect x="6" y="6" width="12" height="12" rx="1" fill="var(--glass-primary)" opacity="0.5"/>
+        <rect x="22" y="6" width="12" height="12" rx="1" fill="var(--glass-accent)" opacity="0.4"/>
+        <rect x="6" y="22" width="12" height="12" rx="1" fill="var(--glass-accent)" opacity="0.4"/>
+        <rect x="22" y="22" width="12" height="12" rx="1" fill="var(--glass-primary)" opacity="0.3"/>
+      </svg>
+      <h3 class="app-title">Studio Art & Panels</h3>
+      <p class="app-text">Consistent sizing, predictable cutting behaviour, and a huge colour range make vitreous glass the go-to for studio artists working at speed and scale.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-mosaic" id="aboutMosaic"></div>
+  <div class="about-content">
+    <p class="section-label">The Materials</p>
+    <h2 class="section-title">Glass & ceramic,<br><em>precisely</em> made</h2>
+    <div class="glass-rule"></div>
+    <p class="about-body">
+      Vitreous glass tiles are made by casting molten glass with mineral colourants into sheets, then cutting to a consistent 2×2cm size. The flat back bonds reliably to any substrate; the slightly textured face holds grout beautifully and scatters light in a way that painted or printed tiles simply cannot.
+    </p>
+    <p class="about-body">
+      Our hand-fired ceramic tesserae are made by independent Australian and European studios. Each piece is individually thrown, fired, and cut — no two are exactly alike, giving finished work a warmth and presence impossible to achieve with industrial tile.
+    </p>
+    <a href="#SHOPIFY-GLASS-URL" class="btn-primary btn-glas">Browse Full Collection →</a>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div>
+    <h2 class="cta-title">Ready for your next <em>project?</em></h2>
+    <p class="cta-sub">Free shipping on orders over $99 · Same-day dispatch from Adelaide Hills</p>
+  </div>
+  <a href="#SHOPIFY-GLASS-URL" class="btn-primary btn-glass-warm">Shop Glass & Ceramics</a>
+</div>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div>
+    <h2 class="nl-title">Stay <em>inspired</em></h2>
+    <p class="nl-sub">New materials, project features, and subscriber-only discounts delivered to your inbox.</p>
+  </div>
+  <div class="nl-form">
+    <div class="nl-row">
+      <input type="email" class="newsletter-input" placeholder="your@email.com">
+      <button class="newsletter-btn">Subscribe</button>
+    </div>
+    <p class="nl-note">No spam. Just beautiful things.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">All<span>Mosaics</span></div>
+      <p class="footer-tagline">Australia's home for premium mosaic supplies, commissions, and creative education.</p>
+      <p class="footer-url">allmosaics.au</p>
+      <div class="footer-collections">
+        <a href="mexican-smalti.html" class="footer-coll-badge mex">Mexican Smalti</a>
+        <a href="italian-smalti.html" class="footer-coll-badge ital">Italian Smalti</a>
+        <a href="glass-ceramics.html" class="footer-coll-badge glas">Glass & Ceramics</a>
+      </div>
+    </div>
+    <div>
+      <p class="footer-col-title">Glass & Ceramics</p>
+      <ul class="footer-links">
+        <li><a href="#">Vitreous Glass</a></li>
+        <li><a href="#">Hand-fired Ceramic</a></li>
+        <li><a href="#">Stained Glass</a></li>
+        <li><a href="#">Iridescent Glass</a></li>
+        <li><a href="#">Mirror Tiles</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Learn</p>
+      <ul class="footer-links">
+        <li><a href="#">Workshops</a></li>
+        <li><a href="#">Tutorials</a></li>
+        <li><a href="#">Project Ideas</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Info</p>
+      <ul class="footer-links">
+        <li><a href="../index.html">Back to Hub</a></li>
+        <li><a href="#">Shipping</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 AllMosaics · allmosaics.au</p>
+    <div class="footer-socials">
+      <a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../components/shared.js"></script>
+<script>
+  AM.buildMosaic('heroMosaic', ['glassBlue','glassSlate','glassCeramic','ocean'], 12, 16, { gap: '3px', padding: '3px', pattern: 'radial' });
+  AM.buildMosaic('prod1', ['glassBlue','glassSlate'], 12, 7, { gap: '2px' });
+  AM.buildMosaic('prod2', ['glassCeramic','glassSlate'], 12, 7, { gap: '2px' });
+  AM.buildMosaic('prod3', ['glassBlue','glassCeramic','ocean'], 12, 7, { gap: '2px' });
+  AM.buildMosaic('aboutMosaic', ['glassBlue','glassSlate','glassCeramic'], 14, 16, { gap: '2px' });
+  AM.buildMarquee('marqueeInner', [
+    'Vitreous Glass','Hand-fired Ceramics','Stained Glass','Iridescent Tiles',
+    'Mirror Mosaic','2×2cm Precision Cut','150+ Colours','Waterproof & UV-Stable',
+    'Architectural Grade','Free Shipping Over $99',
+  ]);
+  AM.initScrollReveal();
+  AM.initNewsletterForm();
+</script>
+</body>
+</html>
